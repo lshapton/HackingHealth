@@ -1,0 +1,2 @@
+module HealthcareProfessionalsHelper
+end

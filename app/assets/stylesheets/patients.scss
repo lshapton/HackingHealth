@@ -1,0 +1,44 @@
+// Place all the styles related to the Patients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.patients{
+
+	.patient-link{
+		height: 100px;
+		width: 150px;
+		line-height: 100px;
+  	padding: 0;
+	}
+	
+}
+
+
+.patient-profile {
+	background-color: #ecf0f1;
+	padding: 20px;
+	border-radius: 10px;
+	color: #34495e;
+
+	p {
+		background-color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+	}
+}
+
+.patient-goals{
+	table{
+		border: 1px solid #ecf0f1;
+	}
+	h3{
+		color: #34495e;
+	}
+	thead{
+		background-color: #ecf0f1;
+		color: #34495e;
+	}
+
+}

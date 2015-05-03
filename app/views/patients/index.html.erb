@@ -1,0 +1,9 @@
+<article class="container patients">
+
+  <br>
+
+  <% @patients.each do |patient| %>
+    <%= link_to patient.name, patient, :class=>"btn btn-green patient-link" %>
+  <% end %>
+
+</article>

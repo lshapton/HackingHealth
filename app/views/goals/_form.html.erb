@@ -1,0 +1,56 @@
+<%= form_for(@goal, :url => patient_goal_path(@patient, :goal), :html => { :class => "form-horizontal", :role => "form"}) do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "Goal", class: 'col-xs-3 control-label'%>
+    <div class="col-xs-9">
+      <%= f.text_area :description, class: 'form-control', :rows => 2 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "What I hope to achieve", class: 'col-xs-3 control-label'%>
+    <div class="col-xs-9">
+      <%= f.text_area :question_1, class: 'form-control', :rows => 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "What we can do to achieve it", class: 'col-xs-3 control-label'%>
+    <div class="col-xs-9">
+      <%= f.text_area :question_2, class: 'form-control', :rows => 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Who will be responsible", class: 'col-xs-3 control-label'%>
+    <div class="col-xs-9">
+      <%= f.text_area :question_3, class: 'form-control', :rows => 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Barriers and challenges", class: 'col-xs-3 control-label'%>
+    <div class="col-xs-9">
+      <%= f.text_area :question_4, class: 'form-control', :rows => 3 %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :patient_id, :value => @patient.id %>
+
+  <div class="actions row">
+    <div class="col-xs-offset-3 col-xs-9">
+      <%= f.submit "Save Goal", class: "btn btn-green btn-block" %>
+    </div>
+  </div>
+<% end %>

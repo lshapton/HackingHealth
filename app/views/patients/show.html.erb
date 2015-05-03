@@ -1,0 +1,58 @@
+<article class="container patient">
+  <p id="notice"><%= notice %></p>
+
+  <div class="patient-profile">
+
+    <h2><%= @patient.name %> <%= link_to "Edit", edit_patient_path(@patient.id), :class=>"btn btn-green patient-link" %></h2> 
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>Date of birth: <%= @patient.dob %></p>
+      </div>
+      <div class="col-md-6">
+        <p>Health care number: <%= @patient.health_care_number %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>Telephone: <%= @patient.telephone %></p>
+      </div>
+      <div class="col-md-6">
+        <p>Email: <%= @patient.email %></p>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="patient-goals">
+    <h3>Goals: <%= link_to 'Add New Goal', new_patient_goal_path(@patient.id), :class=>"btn btn-green" %></h3> 
+
+    <table class="table">
+      <thead>
+        <th class="col-xs-8">Description</th>
+        <th class="col-xs-4">Actions</th>
+      <thead>
+      <tbody>
+        <% @goals.each do |goal| %>
+          <tr>
+            <td><%= goal.description %></td>
+            <td>
+              <%= link_to "View", patient_goal_path(@patient.id, goal.id), :class => "btn btn-green btn-sm" %>
+            </td>
+          </tr>
+        <% end %> 
+      </tbody>
+    </table>
+  </div>
+
+
+</article>
+
+
+
+

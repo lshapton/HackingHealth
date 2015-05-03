@@ -1,0 +1,64 @@
+<article class="container goal">
+  <p id="notice"><%= notice %></p>
+
+
+  <!-- Goal description -->
+
+  <div class="goal-description text-center">
+
+    <h3>Goal: <%= @goal.description %> </h3>
+
+  </div>
+
+  <br/>
+
+  <!-- Question table -->
+
+  <table class="table goal-question-table">
+    <thead class="goal-question-header">
+      <th class="text-center">What I hope to achieve</th>
+      <th class="text-center">What we can do to achieve it</th>
+      <th class="text-center">Who will be responsible</th>
+      <th class="text-center">Barriers and challenges</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @goal.question_1 %></td>
+        <td><%= @goal.question_2 %></td>
+        <td><%= @goal.question_3 %></td>
+        <td><%= @goal.question_4 %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="metrics text-center">
+    <!-- API METRICS TO GO HERE -->
+    <h1>API METRICS</h1>
+  </div>
+
+  <br/>
+
+  <div class="comments">
+    <h4>Comments</h4>
+
+    <table class="table comment-table">
+      <tbody>
+        <% @goal.comments.each do |comment| %>
+          <tr>
+            <td><%= comment.name %></td>
+            <td><%= comment.role  %></td>
+            <td><%= comment.description %></td>
+            <td><%= comment.date %></td>
+          </tr>
+        <% end %> 
+      </tbody>
+    </table>
+
+    <%= link_to 'Add Comment', new_patient_goal_comment_path(@patient, @goal), :class=>"btn btn-green" %>
+
+  </div>
+
+  <hr>
+
+
+</article>

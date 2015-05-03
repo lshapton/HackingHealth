@@ -1,0 +1,156 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+ *= require_tree .
+ *= require_self
+ */
+
+
+ // NAVBAR
+
+ $navbar-height: 50px;
+
+ .navbar{
+ 	background-color: #34495e;
+
+ 	.nav-link {
+ 		color: #fff;
+ 		line-height: 40px;
+ 		margin: 5px;
+	 	}
+	 }
+
+	 // Link to goals in top nav
+
+	 .goal-list{
+	 	padding: 0;
+	 	width: 100%;
+	 	height: $navbar-height;
+	 	background-color: #27ae60;
+	 	
+	 	.goal-icon{
+
+	 		ul{
+	 			padding:0;
+	 		}
+	 		
+	 		li{
+	 			list-style:none;
+	 		}
+	 		
+	 		a {
+	 			color: #fff;
+	 		}
+
+	 		a:hover {
+	 			color: #fff;
+	 		}
+
+	 		a:focus {
+	 			color: #fff;
+	 		}
+	 		
+	 		.fa-trophy{
+	 			line-height: $navbar-height;
+	 		}
+
+	 	}
+	 }
+
+
+	 #tree{
+	   width: calc(25%);
+	   position: fixed;
+	   top: 0;
+	   z-index: 10;
+	   background-color: #222;
+	   padding: 30px;
+	   opacity: 0;
+	   transform: translateY(-100%);
+	   -webkit-transform: translateY(-100%);
+	 }
+
+	 #tree.active{
+	   top: 50px;
+  	 left: 0px;
+  	 height: 100%;
+	   opacity: 1;
+	   background-color: #ecf0f1;
+	   border-top: solid 1px #34495e;
+	   border-right: solid 1px #34495e;
+	   transform: translateY(0%);
+	   -webkit-transform: translateY(0%);
+	   transition: opacity 0.5s;
+	   -webkit-transition: opacity 0.5s;
+	 }
+
+	 #tree .tree-element{
+	   
+	   margin-bottom: 30px;
+	   opacity: 0;
+	   -webkit-transform: translateY(-10px);
+	   -moz-transform: translateY(-10px);
+	   -ms-transform: translateY(-10px);
+	   -o-transform: translateY(-10px);
+	   transform: translateY(-10px);
+	   transition: opacity 400ms linear, transform .2s ease-out;
+	   -webkit-transition: opacity 400ms linear, -webkit-transform .2s ease-out;
+	   a{
+	   	color: #34495e;
+	   	text-decoration: none;
+	   }
+
+	   hr{
+	   	border: 1px solid #34495e;
+	   }
+	 }
+
+	 #tree.active .tree-element{
+	   opacity: 1;
+	   -webkit-transform: translateY(0px);
+	   -moz-transform: translateY(0px);
+	   -ms-transform: translateY(0px);
+	   -o-transform: translateY(0px);
+	   transform: translateY(0px);
+	 }
+
+
+// CONTAINER
+
+ .container-fluid {
+ 	margin-top: $navbar-height;
+ }
+	                
+
+
+ // BUTTONS
+
+ .btn-green{
+ 	background-color: #27ae60;
+ 	color: #fff;
+ }
+
+ .btn-green:hover{
+ 	background-color: #2ecc71;
+ 	color: #fff !important;
+ }
+
+ //FORMS
+
+ .form {
+	background-color: #ecf0f1;
+	padding: 20px;
+	border-radius: 10px;
+	color: #34495e;
+	}
+
