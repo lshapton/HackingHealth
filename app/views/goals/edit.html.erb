@@ -1,6 +1,16 @@
-<h1>Editing Goal</h1>
+<br/>
+<div class="container form">
 
-<%= render 'form' %>
+	<h2 class="text-center">Edit Goal</h2>
 
-<%= link_to 'Show', @goal %> |
-<%= link_to 'Back', goals_path %>
+	<br/>
+
+	<%= render 'edit_form' %>
+
+	<br/>
+
+	<div class="text-right">
+		<%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
+	</div>
+
+</div>

@@ -1,6 +1,16 @@
-<h1>Editing Patient</h1>
+<br/>
+<div class="container form">
 
-<%= render 'form' %>
+	<h2 class="text-center">Edit Patient Information</h2>
 
-<%= link_to 'Show', @patient %> |
-<%= link_to 'Back', patients_path %>
+	<br/>
+
+	<%= render 'form' %>
+
+	<br/>
+
+	<div class="text-right">
+		<%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
+	</div>
+
+</div>

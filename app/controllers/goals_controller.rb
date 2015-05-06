@@ -30,8 +30,8 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
-        format.json { render :show, status: :created, location: @goal }
+        format.html { redirect_to patient_goals_path(@patient), notice: 'Goal was successfully created.' }
+        format.json { render :show, status: :created, location: patient_goals_path(@patient)}
       else
         format.html { render :new }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
@@ -44,8 +44,8 @@ class GoalsController < ApplicationController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
-        format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @goal }
+        format.html { redirect_to patient_goals_path(@patient, @goal), notice: 'Goal was successfully updated.' }
+        format.json { render :show, status: :ok, location: patient_goals_path(@patient, @goal)}
       else
         format.html { render :edit }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     respond_to do |format|
-      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
+      format.html { redirect_to patient_goals_path(@patient, @goal), notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

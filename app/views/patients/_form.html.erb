@@ -1,4 +1,4 @@
-<%= form_for(@patient) do |f| %>
+<%= form_for(@patient, :url => patients_path, :html => { :class => "form-horizontal", :role => "form"}) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -11,35 +11,60 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :given_name %><br>
-    <%= f.text_field :given_name %>
+  <div class="form-group">
+    
+    <%= f.label "Given Name", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :given_name, class: 'form-control'%>
+    </div>
+
+    <%= f.label "Preferred Name", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :preferred_name, class: 'form-control' %>
+    </div>
+
+    <%= f.label "Surname", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :surname, class: 'form-control'%>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.label :preferred_name %><br>
-    <%= f.text_field :preferred_name %>
+
+  <div class="form-group">
+    
+    <%= f.label "Date of birth", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :dob, class: 'form-control'%>
+    </div>
+
+    <%= f.label "Health Care No.", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :health_care_number, class: 'form-control'%>
+    </div>
+
+    <div class="col-xs-4"></div>
+
   </div>
-  <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+
+  <div class="form-group">
+    
+    <%= f.label "Telephone", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :telephone, class: 'form-control'%>
+    </div>
+
+    <%= f.label "Email", class: 'col-xs-1 control-label'%>
+    <div class="col-xs-3">
+      <%= f.text_field :email, class: 'form-control'%>
+    </div>
+
+    <div class="col-xs-4"></div>
+
   </div>
-  <div class="field">
-    <%= f.label :dob %><br>
-    <%= f.date_select :dob %>
-  </div>
-  <div class="field">
-    <%= f.label :health_care_number %><br>
-    <%= f.number_field :health_care_number %>
-  </div>
-  <div class="field">
-    <%= f.label :telephone %><br>
-    <%= f.text_field :telephone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="actions row">
+    <div class="col-xs-12">
+      <%= f.submit "Save Patient info", class: "btn btn-green btn-block" %>
+    </div>
   </div>
 <% end %>
