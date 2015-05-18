@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503004059) do
+ActiveRecord::Schema.define(version: 20150517231247) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "healthcare_professional_id"
@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 20150503004059) do
     t.integer  "health_care_number"
     t.string   "telephone"
     t.string   "email"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "fitbit_oauth_token"
+    t.string   "fitbit_oauth_secret"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,17 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
 
-group :development do
-  gem 'sqlite3'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'annotate'
-end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +33,32 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #authentication
 gem 'devise'
+
+#####  APIs
+
+# API Support
+gem 'rabl'
+
+# Ruby OmniAuth 1.0+ Strategy for the Fitbit API. - http://www.rubydoc.info/github/whazzmaster/fitgem/master/frames
+gem 'fitgem'
+# OmniAuth 1.0+ Strategy for the Fitbit API. - https://github.com/tkgospodinov/omniauth-fitbit
+gem 'omniauth-fitbit'
+
+# Environmental Variables
+gem 'dotenv-rails'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'newrelic_rpm'
+end
+
+group :development do
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

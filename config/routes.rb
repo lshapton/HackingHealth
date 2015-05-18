@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "patients#index"
 
+  post "/auth/fitbit" => "fitbit_auth#make_request"
+  get "/auth/fitbit/callback" => "fitbit_auth#get_response"
   
   resources :healthcare_professionals
 
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
