@@ -44,8 +44,7 @@ gem 'fitgem'
 # OmniAuth 1.0+ Strategy for the Fitbit API. - https://github.com/tkgospodinov/omniauth-fitbit
 gem 'omniauth-fitbit'
 
-# Environmental Variables
-gem 'dotenv-rails'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :production do
   gem 'pg'

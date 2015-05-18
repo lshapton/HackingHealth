@@ -3,7 +3,7 @@ class FitbitAuthController < ApplicationController
   def make_request
     # The request is made to Fitbit
   end
-  
+
   def get_response
     # Callback from Fitbit Oauth
 
@@ -29,8 +29,8 @@ private
     # Store this information in you user model for
     # logins in the future.
     client = Fitgem::Client.new({
-      consumer_key: ENV['FITBIT_CLIENT_KEY'],
-      consumer_secret: ENV['FITBIT_CLIENT_SECRET'],
+      consumer_key: ENV['FITBIT_CONSUMER_KEY'],
+      consumer_secret: ENV['FITBIT_CONSUMER_SECRET'],
       token: user_token,
       secret: user_secret,
       user_id: fitbit_user_id,
