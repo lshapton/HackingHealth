@@ -1,5 +1,21 @@
-<h1>New Patient</h1>
+<div class="patient-edit">
+  <div class="row patient-header">
+    <div class="col-xs-1">
+      <i class="fa fa-user fa-3x"></i>
+    </div>
+    <div class="col-xs-10">
+      <h2>Profile: Questionnaire (NEW)</h2>
+    </div>
+  </div><hr>
 
-<%= render 'form' %>
+	<div class="questionnaire row">
+		<div class="col-md-offset-1 col-md-10">
+			<%= render 'new_form' %><br/>
 
-<%= link_to 'Back', patients_path %>
+    	<div class="text-right">
+    		<%= link_to 'Back', patients_path, :class => "btn btn-default" %>
+    	</div>
+    </div>
+    
+  </div>
+</div>

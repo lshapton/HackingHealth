@@ -1,65 +1,100 @@
-<article class="container goal">
+<article class="goal">
   <p id="notice"><%= notice %></p>
+
+  <div class="row text-center goal-header">
+    <div class="col-xs-1">
+      <i class="fa fa-trophy fa-3x"></i>
+    </div>
+    <div class="col-xs-offset-1 col-xs-8">
+      <h2>Goal: <%=@goal.description%></h2>
+    </div>
+    <div class="col-xs-2">
+      <%= link_to "Edit goal", edit_patient_goal_path(@patient, @goal), :class => "btn btn-green" %>
+    </div>
+  </div><hr>
+
+  <div class="goal-body">
+    <div class="col-md-offset-1 col-md-10">
+      
+
+      <div class="goal-questions">
+        <div class="row">
+          <div class="col-xs-3">
+            <label>What I hope to achieve</label>
+          </div>
+          <div class="col-xs-9">
+            <%= @goal.question_1 %>
+          </div>
+        </div><hr>
+        <div class="row">
+          <div class="col-xs-3">
+            <label>What we can do to achieve it</label>
+          </div>
+          <div class="col-xs-9">
+            <%= @goal.question_2 %>
+          </div>
+        </div><hr>
+        <div class="row">
+          <div class="col-xs-3">
+            <label>Who will be responsible</label>
+          </div>
+          <div class="col-xs-9">
+            <%= @goal.question_3 %>
+          </div>
+        </div><hr>
+        <div class="row">
+          <div class="col-xs-3">
+            <label>Barriers and challenges</label>
+          </div>
+          <div class="col-xs-9">
+            <%= @goal.question_4 %>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-md-3 metric-box">
+          
+        </div>
+      </div>
+
+<!--       <div class="comments">
+        <h4>Comments</h4>
+
+        <table class="table comment-table">
+          <tbody>
+            <% @goal.comments.each do |comment| %>
+              <tr>
+                <td><%= comment.name %></td>
+                <td><%= comment.role  %></td>
+                <td><%= comment.description %></td>
+                <td><%= comment.date %></td>
+              </tr>
+            <% end %> 
+          </tbody>
+        </table>
+
+        <%= link_to 'Add Comment', new_patient_goal_comment_path(@patient, @goal), :class=>"btn btn-green" %>
+
+      </div> -->
+
+
+    </div>
+
+    <div class="questionnaire row">
+      <div class="col-md-offset-1 col-md-10">
+        <div class="text-right">
+          <%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
 
 
   <!-- Goal description -->
-
-  <div class="goal-description text-center">
-
-    <h3>Goal: <%= @goal.description %> </h3>
-
-  </div>
-
-  <br/>
-
-  <!-- Question table -->
-
-  <table class="table goal-question-table">
-    <thead class="goal-question-header">
-      <th class="text-center">What I hope to achieve</th>
-      <th class="text-center">What we can do to achieve it</th>
-      <th class="text-center">Who will be responsible</th>
-      <th class="text-center">Barriers and challenges</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @goal.question_1 %></td>
-        <td><%= @goal.question_2 %></td>
-        <td><%= @goal.question_3 %></td>
-        <td><%= @goal.question_4 %></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="metrics text-center">
-    <!-- API METRICS TO GO HERE -->
-    <%= link_to "Connect to Fitbit!!", auth_fitbit_path %>
-    <h1>API METRICS</h1>
-  </div>
-
-  <br/>
-
-  <div class="comments">
-    <h4>Comments</h4>
-
-    <table class="table comment-table">
-      <tbody>
-        <% @goal.comments.each do |comment| %>
-          <tr>
-            <td><%= comment.name %></td>
-            <td><%= comment.role  %></td>
-            <td><%= comment.description %></td>
-            <td><%= comment.date %></td>
-          </tr>
-        <% end %> 
-      </tbody>
-    </table>
-
-    <%= link_to 'Add Comment', new_patient_goal_comment_path(@patient, @goal), :class=>"btn btn-green" %>
-
-  </div>
-
-  <hr>
 
 
 </article>

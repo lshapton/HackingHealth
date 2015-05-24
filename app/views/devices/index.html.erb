@@ -1,0 +1,32 @@
+<div class="patient-devices">
+  <div class="row patient-header">
+    <div class="col-xs-1">
+      <i class="fa fa-mobile fa-3x"></i>
+    </div>
+    <div class="col-xs-10">
+      <h2>Devices</h2>
+    </div>
+  </div><hr>
+
+  <div class="devices-body row">
+    <div class="col-md-offset-1 col-md-10">
+
+      <div class="row">
+        <div class="col-md-3 device text-center">
+          <br>
+          <% if @patient.fitbit_oauth_token.present? %> 
+            <%= link_to "Disconnect from Fitbit", remove_fitbit_link_path(:patient_id => @patient.id), :class=>"btn btn-orange" %> 
+          <% else %> 
+            <%= link_to "Connect to Fitbit", auth_fitbit_path, :class=>"btn btn-orange" %> 
+          <% end %> 
+          <%= image_tag("fitbit-logo.jpg", height: '40', class: "spider-branding")%>
+        </div>
+      </div>
+    
+      <div class="text-right">
+        <%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
+      </div>
+    </div>
+    
+  </div>
+</div>

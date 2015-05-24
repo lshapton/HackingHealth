@@ -1,0 +1,42 @@
+// Place all the styles related to the Devices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$orange: #E5AE35;
+
+.patient-devices{
+
+	h2{
+		color: $orange;
+	}
+
+	hr{
+		border: 2px solid $orange;
+		margin: 0;
+	}
+
+	.fa{
+		line-height: 63px;
+		color: $orange;
+	}
+
+	.devices-body{
+		padding: 50px 0;
+		background-color: #ecf0f1;
+		min-height: 100vh;
+
+		.device{
+			background-color: #fff;
+			height: 200px;
+			box-shadow: 0 1px 1px rgba(0,0,0,.05);
+			img{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+	}
+}

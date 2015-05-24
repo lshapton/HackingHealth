@@ -1,58 +1,80 @@
-<article class="container patient">
+<article class="patient">
   <p id="notice"><%= notice %></p>
 
-  <div class="patient-profile">
+  <div class="patient-header">
+    <h2><%= @patient.name %></h2>
+  </div>
 
-    <h2><%= @patient.name %> <%= link_to "Edit", edit_patient_path(@patient.id), :class=>"btn btn-green patient-link" %></h2> 
+  <div class="row patient-body">
+    <div class="col-md-offset-1 col-md-10">
 
-    <br>
-
-    <div class="row">
-      <div class="col-md-6">
-        <p>Date of birth: <%= @patient.dob %></p>
+    <div class="box profile">
+      <div class="row">
+        <div class="col-xs-1">
+          <i class="fa fa-user fa-2x"></i>
+        </div>
+        <div class="col-xs-11">
+          <h4>Profile</h4>
+        </div>
       </div>
-      <div class="col-md-6">
-        <p>Health care number: <%= @patient.health_care_number %></p>
+      <hr>
+      <div class="panel-body">
+        <%= link_to "Questionnaire", edit_patient_path(@patient), :class=> "btn btn-purple" %>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <p>Telephone: <%= @patient.telephone %></p>
+    <div class="box goals">
+      <div class="row">
+        <div class="col-xs-1">
+          <i class="fa fa-trophy fa-2x"></i>
+        </div>
+        <div class="col-xs-11">
+          <h4>Goals</h4>
+        </div>
       </div>
-      <div class="col-md-6">
-        <p>Email: <%= @patient.email %></p>
+      <hr>
+      <div class="panel-body">
+      <table class="table">
+        <tbody>
+          <% @goals.each do |goal| %>
+            <tr>
+              <td class="col-xs-8"><%= goal.description %></td>
+              <td class="col-xs-4">
+                <%= link_to "View", patient_goal_path(@patient.id, goal.id), :class => "btn btn-green btn-sm" %>
+                <%= link_to "Edit", edit_patient_goal_path(@patient.id, goal.id), :class => "btn btn-info btn-sm" %>
+                <%= link_to 'Remove', patient_goal_path(@patient.id, goal.id), :class=>"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %> 
+              </td>
+            </tr>
+          <% end %> 
+        </tbody>
+      </table>
+      <%= link_to "Add new goal", new_patient_goal_path(@patient), :class => "btn btn-green" %>
       </div>
     </div>
 
+    <div class="box devices">
+      <div class="row">
+        <div class="col-xs-1">
+          <i class="fa fa-mobile fa-2x"></i>
+        </div>
+        <div class="col-xs-11">
+          <h4>Devices</h4>
+        </div>
+      </div>
+      <hr>
+      <div class="panel-body">
+          <% if @patient.fitbit_oauth_token.present? %>
+            <%= image_tag("fitbit-logo.jpg", height: '20', class: "spider-branding")%>
+          <% end %>
+        <br><br>
+        <%= link_to "Add/remove devices", patient_devices_path(@patient), :class => "btn btn-orange" %>
+      </div>
+    </div>
+
+    <br><br>
+
   </div>
 
-  <br>
-
-  <%= link_to "Connect to Fitbit", auth_fitbit_path %> 
-
-  <div class="patient-goals">
-    <h3>Goals: <%= link_to 'Add New Goal', new_patient_goal_path(@patient.id), :class=>"btn btn-green" %></h3> 
-
-    <table class="table">
-      <thead>
-        <th class="col-xs-8">Description</th>
-        <th class="col-xs-4">Actions</th>
-      <thead>
-      <tbody>
-        <% @goals.each do |goal| %>
-          <tr>
-            <td><%= goal.description %></td>
-            <td>
-              <%= link_to "View", patient_goal_path(@patient.id, goal.id), :class => "btn btn-green btn-sm" %>
-              <%= link_to "Edit", edit_patient_goal_path(@patient.id, goal.id), :class => "btn btn-info btn-sm" %>
-              <%= link_to 'Remove', patient_goal_path(@patient.id, goal.id), :class=>"btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %> 
-            </td>
-          </tr>
-        <% end %> 
-      </tbody>
-    </table>
-  </div>
 
 
 </article>

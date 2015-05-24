@@ -2,17 +2,135 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+$purple: #504964;
+$green: #34A6B3;
+$orange: #E5AE35;
 
 .patients{
+	padding: 50px 0;
+	background-color: #ecf0f1;
+	min-height: 100vh;
 
 	.patient-link{
-		height: 100px;
-		width: 150px;
-		line-height: 100px;
-  	padding: 0;
+		background-color: #fff;
+		box-shadow: 0 1px 1px rgba(0,0,0,.05);
+		color: #3A5264;
+		width: 100%;
+		font-size: 24px;
+
+		&:hover{
+			border: 2px solid #3A5264;
+		}
 	}
+
+}
+
+.patient-header{
+	width: 100%;
+	text-align: center;
+	color: #34495e;
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+.patient{
 	
+
+	.patient-body{
+		background-color: #ecf0f1;
+		padding-bottom: 100px;
+
+		.box{
+			box-shadow: 0 1px 1px rgba(0,0,0,.05);
+			background-color: #fff;
+			margin-top: 50px;
+		}
+
+		.fa{
+			padding: 10px;
+		}
+
+		h4{
+			line-height: 32px;
+		}
+
+		hr{
+			margin: 0;
+		}
+
+		.profile{
+			.fa, h4 {
+				color: $purple;
+			}
+			hr{
+				border: 2px solid $purple;
+			}
+			
+		}
+
+		.goals{
+			.fa, h4 {
+				color: $green;
+			}
+			hr{
+				border: 2px solid $green;
+			}
+			
+		}
+
+		.devices{
+			.fa, h4 {
+				color: $orange;
+			}
+			hr{
+				border: 2px solid $orange;
+			}
+			
+		}
+
+
+	}
+}
+
+.patient-edit{
+
+	.fa{
+		line-height: 63px;
+		color: $purple;
+	}
+
+	h2{
+		color: $purple;
+	}
+
+	hr{
+		border: 2px solid $purple;
+		margin: 0;
+	}
+
+	.questionnaire{
+		background-color: #ecf0f1;
+		padding-bottom: 50px;
+	}
+
+	.question-block{
+		box-shadow: 0 1px 1px rgba(0,0,0,.05);
+		background-color: #fff;
+		margin-top: 50px;
+	}
+
+	.question-block, .form-group{
+		padding: 15px;
+		margin: 20px 0;
+		.checkboxes{
+			padding: 7px;
+		}
+		
+	}
+
+	.row{
+		padding: 0 10px;
+	}
 }
 
 

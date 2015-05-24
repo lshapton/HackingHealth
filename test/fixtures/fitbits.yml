@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: 
+  consumer_key: 
+  consumer_secret: 
+  token: 
+  secret: 
+  user_id: MyString
+
+two:
+  patient: 
+  consumer_key: 
+  consumer_secret: 
+  token: 
+  secret: 
+  user_id: MyString

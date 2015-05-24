@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  healthy_living_area_id: 
+  patient_id: 
+
+two:
+  healthy_living_area_id: 
+  patient_id: 

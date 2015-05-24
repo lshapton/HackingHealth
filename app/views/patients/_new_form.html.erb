@@ -1,0 +1,164 @@
+<%= form_for(@patient, :url => patients_path, :html => { :class => "form-horizontal", :role => "form"}) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- BASIC INFORMATION FIELDS -->
+
+  <div class="question-block">
+    <h4>Please fill in the following information:</h4>
+
+    <div class="form-group">
+
+      <h5>1. What is your given, preferred (optional), and surname? </h5><br>
+      
+      <%= f.label "Given Name", class: 'col-xs-1 control-label'%>
+      <div class="col-xs-3">
+        <%= f.text_field :given_name, class: 'form-control'%>
+      </div>
+
+      <%= f.label "Preferred Name", class: 'col-xs-1 control-label'%>
+      <div class="col-xs-3">
+        <%= f.text_field :preferred_name, class: 'form-control' %>
+      </div>
+
+      <%= f.label "Surname", class: 'col-xs-1 control-label'%>
+      <div class="col-xs-3">
+        <%= f.text_field :surname, class: 'form-control'%>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <h5>2. What is your address? </h5><br>
+        <%= f.label "Address", class: 'col-xs-1 control-label'%>
+        <div class="col-xs-11">
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+      <h5>3. Please provide the following identifiers -  Date of birth, Health care number </h5><br>
+      
+      <%= f.label "Date of birth", class: 'col-xs-1 control-label'%>
+      <div class="col-xs-3">
+        <%= f.date_select :dob, class: 'form-control', start_year: Date.today.year - 100 %>
+      </div>
+
+      <%= f.label "Health Care No.", class: 'col-xs-1 control-label'%>
+      <div class="col-xs-3">
+        <%= f.text_field :health_care_number, class: 'form-control'%>
+      </div>
+
+      <div class="col-xs-4"></div>
+
+    </div>
+
+    <div class="form-group">
+
+      <h5>4. Please provide the following contact information (as applicable) </h5><br>
+
+      <div class="row">
+
+       <%= f.label "Home Phone", class: 'col-xs-1 control-label'%>
+       <div class="col-xs-3">
+         <%= f.text_field :telephone, class: 'form-control'%>
+       </div>
+
+       <%= f.label "Cellphone", class: 'col-xs-1 control-label'%>
+       <div class="col-xs-3">
+         <%= f.text_field :cell_phone, class: 'form-control'%>
+       </div>
+
+      </div>
+
+      <div class="row">
+
+         <%= f.label "Email", class: 'col-xs-1 control-label'%>
+         <div class="col-xs-7">
+           <%= f.text_field :email, class: 'form-control'%>
+         </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MEDICAL CONDITION FIELDS -->
+
+  <div class="question-block">
+    <h4>Do you suffer with any of the following medical conditions:</h4>
+
+    <div class="form-group">
+      <h5>5. Please check the following medical conditions </h5><br>
+        <% @medical_conditions.each do |medical_condition| %>
+          <div class="col-xs-4 checkboxes"><%= f.check_box(:medical_condition_ids, { :multiple => true }, medical_condition.id, nil) %> <%= medical_condition.name %></div>
+        <% end %>
+    </div>
+
+    <div class="form-group">
+      <h5>6. Do you have any other medication conditions? </h5><br>
+        <div class="col-xs-12">
+          <%= f.text_field :other_medical_conditions, class: 'form-control' %>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- SMOKER -->
+
+  <div class="question-block">
+    <h4>Do you currently smoke?</h4>
+
+    <div class="form-group">
+      <%= f.radio_button :smoker, 'Yes', :checked => true %> Yes   
+      <%= f.radio_button :smoker, 'No', :checked => false %> No
+    </div>
+    
+    <h5>7. If yes,</h5><br>
+    <div class="row">
+      <div class="col-xs-3"><span>How many cigarettes a day:</span></div>
+       <div class="col-xs-2">
+         <%= f.number_field :cigarettes_per_day, class: 'form-control'%>
+       </div>
+    </div><br/>
+
+    <div class="row">
+      <div class="col-xs-3"><span>How many years have you been smoking for:</span></div>
+       <div class="col-xs-2">
+         <%= f.number_field :smoking_years, class: 'form-control'%>
+       </div>
+    </div>
+
+  </div>
+
+  <!-- HEALTHLY LIVING AREAS  -->
+
+  <div class="question-block">
+    <h4>Do you feel you could benefit from improvement in any of the following healthy living areas?</h4>
+
+    <div class="form-group">
+      <h5>8. Please check the following healthy living areas </h5><br>
+        <% @healthy_living_areas.each do |healthy_living_area| %>
+          <div class="col-xs-4 checkboxes"><%= f.check_box(:healthy_living_area_ids, { :multiple => true }, healthy_living_area.id, nil) %> <%= healthy_living_area.name %></div>
+        <% end %>
+    </div>
+
+  </div>
+
+  <div class="actions row">
+    <div class="col-xs-12">
+      <%= f.submit "Save Questionnaire", class: "btn btn-purple btn-block" %>
+    </div>
+  </div>
+<% end %>

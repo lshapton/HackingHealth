@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to patient_goals_path(@patient), notice: 'Goal was successfully created.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: patient_goals_path(@patient)}
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
-        format.html { redirect_to patient_goals_path(@patient, @goal), notice: 'Goal was successfully updated.' }
+        format.html { redirect_to patient_path(@patient), notice: 'Goal was successfully updated.' }
         format.json { render :show, status: :ok, location: patient_goals_path(@patient, @goal)}
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     respond_to do |format|
-      format.html { redirect_to patient_goals_path(@patient, @goal), notice: 'Goal was successfully destroyed.' }
+      format.html { redirect_to patient_path(@patient), notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +68,17 @@ class GoalsController < ApplicationController
     def set_patient
       @patient = Patient.find(params[:patient_id])
       @goals = @patient.goals
+
+
+        if @patient.fitbit_oauth_token.present? 
+          @patient_fitbit = Fitgem::Client.new({
+            consumer_key: ENV['FITBIT_CONSUMER_KEY'],
+            consumer_secret: ENV['FITBIT_CONSUMER_SECRET'],
+            token: @patient.fitbit_oauth_token,
+            secret: @patient.fitbit_oauth_secret,
+            user_id: @patient.fitbit_user_id,
+          })
+        end
     end
 
     def set_goal
@@ -76,6 +87,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :question_1, :question_2, :question_3, :question_4, :patient_id)
+      params.require(:goal).permit(:description, :question_1, :question_2, :question_3, :question_4, :patient_id, :fitbit_steps, :fitbit_activeScore)
     end
 end

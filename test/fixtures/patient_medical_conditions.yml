@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 
+  medical_condition_id: 
+
+two:
+  patient_id: 
+  medical_condition_id: 

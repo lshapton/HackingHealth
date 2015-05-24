@@ -1,16 +1,21 @@
-<br/>
-<div class="container form">
+<div class="patient-edit">
+  <div class="row patient-header">
+    <div class="col-xs-1">
+      <i class="fa fa-user fa-3x"></i>
+    </div>
+    <div class="col-xs-10">
+      <h2>Profile: Questionnaire</h2>
+    </div>
+  </div><hr>
 
-	<h2 class="text-center">Edit Patient Information</h2>
+	<div class="questionnaire row">
+		<div class="col-md-offset-1 col-md-10">
+			<%= render 'form' %><br/>
 
-	<br/>
-
-	<%= render 'form' %>
-
-	<br/>
-
-	<div class="text-right">
-		<%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
-	</div>
-
+    	<div class="text-right">
+    		<%= link_to 'Back', patient_path(@patient), :class => "btn btn-default" %>
+    	</div>
+    </div>
+    
+  </div>
 </div>

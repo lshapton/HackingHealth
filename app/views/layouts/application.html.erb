@@ -10,9 +10,13 @@
 </head>
 <body>
 
+<% if current_user %>
+
   <%= render :partial => 'layouts/navbar', :locals => { :active => controller_name } %>
 
-  <div class="container-fluid">
+<% end %>
+
+  <div class="body">
 		<%= render 'layouts/messages' %>
 		<%= yield %>
 	</div>

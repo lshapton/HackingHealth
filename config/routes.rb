@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "patients#index"
-
-  post "/auth/fitbit" => "fitbit_auth#make_request"
-  get "/auth/fitbit/callback" => "fitbit_auth#get_response"
   
   resources :healthcare_professionals
 
   resources :patients do
+    resources :devices
     resources :goals do
       resources :comments
     end
   end
+
+  # link fitbit account to patient model
+  post "/auth/fitbit" => "patients#make_fitbit_request"
+  get "/auth/fitbit/callback" => "patients#get_fitbit_response"
+  
+  # remove fitbit account from patient model
+  post "/edit" => "patients#remove_fitbit_link", as: :remove_fitbit_link
+  get "/edit" => "patients#remove_fitbit_link"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

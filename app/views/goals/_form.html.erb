@@ -11,46 +11,66 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label "Goal", class: 'col-xs-3 control-label'%>
-    <div class="col-xs-9">
-      <%= f.text_area :description, class: 'form-control', :rows => 2 %>
-    </div>
-  </div>
+  <div class="goal-form-block">
+    <h4>Goal details</h4>
 
-  <div class="form-group">
-    <%= f.label "What I hope to achieve", class: 'col-xs-3 control-label'%>
-    <div class="col-xs-9">
-      <%= f.text_area :question_1, class: 'form-control', :rows => 3 %>
+    <div class="form-group">
+      <%= f.label "Description", class: 'col-xs-3 control-label'%>
+      <div class="col-xs-9">
+        <%= f.text_area :description, class: 'form-control', :rows => 2 %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label "What we can do to achieve it", class: 'col-xs-3 control-label'%>
-    <div class="col-xs-9">
-      <%= f.text_area :question_2, class: 'form-control', :rows => 3 %>
+    <div class="form-group">
+      <%= f.label "What I hope to achieve", class: 'col-xs-3 control-label'%>
+      <div class="col-xs-9">
+        <%= f.text_area :question_1, class: 'form-control', :rows => 3 %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label "Who will be responsible", class: 'col-xs-3 control-label'%>
-    <div class="col-xs-9">
-      <%= f.text_area :question_3, class: 'form-control', :rows => 3 %>
+    <div class="form-group">
+      <%= f.label "What we can do to achieve it", class: 'col-xs-3 control-label'%>
+      <div class="col-xs-9">
+        <%= f.text_area :question_2, class: 'form-control', :rows => 3 %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label "Barriers and challenges", class: 'col-xs-3 control-label'%>
-    <div class="col-xs-9">
-      <%= f.text_area :question_4, class: 'form-control', :rows => 3 %>
+    <div class="form-group">
+      <%= f.label "Who will be responsible", class: 'col-xs-3 control-label'%>
+      <div class="col-xs-9">
+        <%= f.text_area :question_3, class: 'form-control', :rows => 3 %>
+      </div>
     </div>
-  </div>
 
-  <%= f.hidden_field :patient_id, :value => @patient.id %>
+    <div class="form-group">
+      <%= f.label "Barriers and challenges", class: 'col-xs-3 control-label'%>
+      <div class="col-xs-9">
+        <%= f.text_area :question_4, class: 'form-control', :rows => 3 %>
+      </div>
+    </div>
+
+    <%= f.hidden_field :patient_id, :value => @patient.id %>
+
+  </div><br>
+
+  <div class="goal-form-block">
+    <h4>Select metrics to add</h4><br>
+    <% if @patient.fitbit_oauth_token.present? %>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= image_tag("fitbit-logo.jpg", height: '20', class: "spider-branding")%>
+        </div>
+        <div class="col-xs-2">
+          <%= f.check_box :fitbit_steps %> Steps
+        </div>
+        <div class="col-xs-2">
+          <%= f.check_box :fitbit_activeScore %> Active Score
+        </div>
+      </div>
+    <% end %>
+  </div>
 
   <div class="actions row">
-    <div class="col-xs-offset-3 col-xs-9">
-      <%= f.submit "Save Goal", class: "btn btn-green btn-block" %>
-    </div>
+    <%= f.submit "Save Goal", class: "btn btn-green btn-block" %>
   </div>
 <% end %>
