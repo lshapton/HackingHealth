@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require lib/bootstrap-datepicker.js
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('.pickdate').datepicker({
+    format: "yyyy-mm-dd",
+    autoclose: true
+  });

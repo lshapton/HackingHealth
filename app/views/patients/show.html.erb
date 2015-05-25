@@ -19,7 +19,34 @@
       </div>
       <hr>
       <div class="panel-body">
-        <%= link_to "Questionnaire", edit_patient_path(@patient), :class=> "btn btn-purple" %>
+        <div class="row">
+          <div class="col-xs-2">
+            <p>Age:</p>
+          </div>
+          <div class="col-xs-10">
+            <p><%= @patient.age %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2">
+            <p>Medical Conditions:</p>
+          </div>
+          <div class="col-xs-10">
+            <% @patient.medical_conditions.each do |medical_condition| %>
+              <span> <%= medical_condition.name %>, </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2">
+            <p>Smoker:</p>
+          </div>
+          <div class="col-xs-10">
+            <p><%= @patient.is_a_smoker? %></p>
+          </div>
+        </div>
+
+        <%= link_to "Edit info", edit_patient_path(@patient), :class=> "btn btn-purple" %>
       </div>
     </div>
 
@@ -38,7 +65,8 @@
         <tbody>
           <% @goals.each do |goal| %>
             <tr>
-              <td class="col-xs-8"><%= goal.description %></td>
+              <td class="col-xs-2"><%= MedicalCondition.find(goal.medical_condition_id).name %></td>
+              <td class="col-xs-6"><%= goal.description %></td>
               <td class="col-xs-4">
                 <%= link_to "View", patient_goal_path(@patient.id, goal.id), :class => "btn btn-green btn-sm" %>
                 <%= link_to "Edit", edit_patient_goal_path(@patient.id, goal.id), :class => "btn btn-info btn-sm" %>
@@ -55,10 +83,10 @@
     <div class="box devices">
       <div class="row">
         <div class="col-xs-1">
-          <i class="fa fa-mobile fa-2x"></i>
+          <i class="fa fa-area-chart fa-2x"></i>
         </div>
         <div class="col-xs-11">
-          <h4>Devices</h4>
+          <h4>Metrics/Devices</h4>
         </div>
       </div>
       <hr>
@@ -66,6 +94,7 @@
           <% if @patient.fitbit_oauth_token.present? %>
             <%= image_tag("fitbit-logo.jpg", height: '20', class: "spider-branding")%>
           <% end %>
+          <span class="metric">AsthmaAPP®</span><span class="metric">ObesityAPP®</span><span class="metric">DiabetesAPP®</span>
         <br><br>
         <%= link_to "Add/remove devices", patient_devices_path(@patient), :class => "btn btn-orange" %>
       </div>

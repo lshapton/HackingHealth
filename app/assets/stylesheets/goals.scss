@@ -49,10 +49,35 @@ $green: #34A6B3;
 			color: #34A6B3;
 		}
 	}
+	.goal-form-block{
+		hr{
+			border: 1px solid #ecf0f1;
+			margin: 5px;
+		}
+	}
 
 	.metric-box{
 		height: 200px;
 		background-color: #fff;
+		margin: 0 20px;
+
+		h5{
+			color: #bdc3c7;
+		}
+
+		.metric{
+
+			font-size: 56px;
+			line-height: 130px;
+
+			.green{
+				color: #27ae60;
+			}
+
+			.red{
+				color: #c0392b;
+			}
+		}
 	}
 
 

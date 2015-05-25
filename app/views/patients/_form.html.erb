@@ -101,9 +101,9 @@
 
     <div class="form-group">
       <h5>5. Please check the following medical conditions </h5><br>
-        <% @medical_conditions.each do |medical_condition| %>
-          <div class="col-xs-4 checkboxes"><%= f.check_box(:medical_condition_ids, { :multiple => true }, medical_condition.id, nil) %> <%= medical_condition.name %></div>
-        <% end %>
+        <div class="col-xs-12">
+          <%= f.select :medical_condition_ids, @medical_conditions.collect { |x| [x.name, x.id] }, {}, :multiple => true, :class => "form-control" %>
+        </div>
     </div>
 
     <div class="form-group">
@@ -121,8 +121,8 @@
     <h4>Do you currently smoke?</h4>
 
     <div class="form-group">
-      <%= f.radio_button :smoker, 'Yes', :checked => true %> Yes   
-      <%= f.radio_button :smoker, 'No', :checked => false %> No
+      <%= f.radio_button(:smoker, true) %> Yes   
+      <%= f.radio_button(:smoker, false) %> No
     </div>
     
     <h5>7. If yes,</h5><br>

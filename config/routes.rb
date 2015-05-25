@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "my_devise/registrations"}
   root to: "patients#index"
   
   resources :healthcare_professionals
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # remove fitbit account from patient model
   post "/edit" => "patients#remove_fitbit_link", as: :remove_fitbit_link
   get "/edit" => "patients#remove_fitbit_link"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,6 +5,7 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     @patients = Patient.all
+    @patient = Patient.find(current_user.patient_id)
   end
 
   # GET /patients/1
@@ -30,7 +31,6 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
-    current_user.update_attributes(patient_id: @patient.id)
 
     respond_to do |format|
       if @patient.save

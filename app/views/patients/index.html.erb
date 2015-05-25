@@ -4,13 +4,12 @@
 
 <% if current_user.patient_id.present? %>
 
-  <% @patients.each do |patient| %>
+
   <div class="row">
     <div class="col-xs-offset-2 col-xs-8">
-      <h2><%= link_to patient.name, patient, :class=>"btn patient-link" %></h2>
+      <h2><%= link_to @patient.name, patient_path(@patient), :class=>"btn patient-link" %></h2>
     </div>
   </div>
-  <% end %>
 
 
 <% else %> 

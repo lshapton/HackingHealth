@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  glucose_1: 1
+  glucose_2: 1
+  goal_id: 
+
+two:
+  glucose_1: 1
+  glucose_2: 1
+  goal_id: 

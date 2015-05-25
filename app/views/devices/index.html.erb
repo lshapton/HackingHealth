@@ -1,10 +1,10 @@
 <div class="patient-devices">
   <div class="row patient-header">
     <div class="col-xs-1">
-      <i class="fa fa-mobile fa-3x"></i>
+      <i class="fa fa-chart-area fa-3x"></i>
     </div>
     <div class="col-xs-10">
-      <h2>Devices</h2>
+      <h2>Metrics/Devices</h2>
     </div>
   </div><hr>
 
@@ -20,6 +20,27 @@
             <%= link_to "Connect to Fitbit", auth_fitbit_path, :class=>"btn btn-orange" %> 
           <% end %> 
           <%= image_tag("fitbit-logo.jpg", height: '40', class: "spider-branding")%>
+        </div>
+
+        <div class="col-md-3 device text-center">
+          <br> 
+          <%= link_to "Disconnect from AsthmaAPP", patient_path(@patient), :class=>"btn btn-orange" %> 
+          <h2>Asthma APP</h2>
+        </div>
+
+        <div class="col-md-3 device text-center">
+          <br> 
+          <%= link_to "Disconnect from ObesityAPP", patient_path(@patient), :class=>"btn btn-orange" %> 
+          <h2>Obesity APP</h2>
+        </div>
+      </div><br>
+
+      <div class="row">
+
+        <div class="col-md-3 device text-center">
+          <br> 
+          <%= link_to "Disconnect from DiabetesAPP", patient_path(@patient), :class=>"btn btn-orange" %> 
+          <h2>Diabetes APP</h2>
         </div>
       </div>
     

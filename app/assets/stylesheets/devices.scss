@@ -30,11 +30,16 @@ $orange: #E5AE35;
 			background-color: #fff;
 			height: 200px;
 			box-shadow: 0 1px 1px rgba(0,0,0,.05);
+			margin: 0 40px;
 			img{
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
+			}
+			h2{
+			  margin: 30px;
+			  color: #3A5264;
 			}
 		}
 

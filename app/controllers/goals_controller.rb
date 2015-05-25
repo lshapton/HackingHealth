@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
   before_action :set_patient
+  before_action :set_parents
 
   # GET /goals
   # GET /goals.json
@@ -12,6 +13,7 @@ class GoalsController < ApplicationController
   # GET /goals/1.json
   def show
     @goals = Goal.all
+    @fitbit = FakeFitbit.where(goal_id: @goal.id)
   end
 
   # GET /goals/new
@@ -85,8 +87,12 @@ class GoalsController < ApplicationController
       @goal = Goal.find(params[:id])
     end
 
+    def set_parents
+      @medical_conditions = MedicalCondition.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :question_1, :question_2, :question_3, :question_4, :patient_id, :fitbit_steps, :fitbit_activeScore)
+      params.require(:goal).permit(:description, :question_1, :question_2, :question_3, :question_4, :patient_id, :fitbit_steps, :fitbit_activeScore, :medical_condition_id, :start_date, :end_date, :fitbit_lightlyActiveMinutes, :fitbit_fairlyActiveMinutes, :fitbit_veryActiveMinutes, :asthma_rescueInhaler, :obesity_pounds, :diabetes_glucose)
     end
 end

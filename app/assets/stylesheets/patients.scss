@@ -1,4 +1,4 @@
-// Place all the styles related to the Patients controller here.
+// Place all the styles related to the patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -84,6 +84,10 @@ $orange: #E5AE35;
 			}
 			hr{
 				border: 2px solid $orange;
+			}
+			.metric{
+				margin: 0 30px;
+			  	font-size: 18px;
 			}
 			
 		}

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  steps_1: 1
+  steps_2: 1
+  fairlyActiveMinutes_1: 1
+  fairlyActiveMinutes_2: 1
+  lightlyActiveMinutes_1: 1
+  lightlyActiveMinute_2: 1
+  veryActiveMinute_1: 1
+  veryActiveMinute_2: 1
+  goal_id: 
+
+two:
+  steps_1: 1
+  steps_2: 1
+  fairlyActiveMinutes_1: 1
+  fairlyActiveMinutes_2: 1
+  lightlyActiveMinutes_1: 1
+  lightlyActiveMinute_2: 1
+  veryActiveMinute_1: 1
+  veryActiveMinute_2: 1
+  goal_id: 
