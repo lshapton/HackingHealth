@@ -1,3 +1,3 @@
 class AsthmaApp < ActiveRecord::Base
-  belongs_to :goal_id
+  belongs_to :goal
 end

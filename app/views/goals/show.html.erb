@@ -139,20 +139,68 @@
           <div class="col-md-3 metric-box text-center">
             <h5># of times Rescue Inhaler was used</h5>
             <div class="metric">
-              <% if @fitbit.first.veryActiveMinute_2 > @fitbit.first.veryActiveMinute_1 %> 
+              <% if @asthma_app.first.rescueInhaler_2 < @asthma_app.first.rescueInhaler_1 %> 
                 <div class="green">
-                  <%= @fitbit.first.veryActiveMinute_2 %> 
+                  <%= @asthma_app.first.rescueInhaler_2 %> 
                 </div>
               <% else %>
                 <div class="red">
-                  <%= @fitbit.first.veryActiveMinute_2 %> 
+                  <%= @asthma_app.first.rescueInhaler_2 %> 
                 </div>
               <% end %> 
             </div>
-            <p>Last week: <%= @fitbit.first.veryActiveMinute_1 %> </p>
+            <p>Last week: <%= @asthma_app.first.rescueInhaler_1 %> </p>
           </div>
         <% end %> 
       </div>
+
+      <!-- OBESITY APP STATS --> 
+
+      <div class="row">
+
+        <% if @goal.obesity_pounds === true %> 
+          <div class="col-md-3 metric-box text-center">
+            <h5>Weight</h5>
+            <div class="metric">
+              <% if @obesity_app.first.weight_2 < @obesity_app.first.weight_1 %> 
+                <div class="green">
+                  <%= @obesity_app.first.weight_2 %>lbs 
+                </div>
+              <% else %>
+                <div class="red">
+                  <%= @obesity_app.first.weight_2 %>lbs 
+                </div>
+              <% end %> 
+            </div>
+            <p>Last week: <%= @obesity_app.first.weight_1 %>lbs </p>
+          </div>
+        <% end %> 
+      </div>
+
+      <!-- DIABETES APP STATS --> 
+
+      <div class="row">
+
+        <% if @goal.diabetes_glucose === true %> 
+          <div class="col-md-3 metric-box text-center">
+            <h5>Blood glucose levels</h5>
+            <div class="metric">
+              <% if @diabetes_app.first.glucose_2 < @diabetes_app.first.glucose_1 %> 
+                <div class="green">
+                  <%= @diabetes_app.first.glucose_2 %>mg/dl
+                </div>
+              <% else %>
+                <div class="red">
+                  <%= @diabetes_app.first.glucose_2 %>mg/dl
+                </div>
+              <% end %> 
+            </div>
+            <p>Last week: <%= @diabetes_app.first.glucose_1 %>mg/dl </p>
+          </div>
+        <% end %> 
+      </div>
+
+
 
 
 <!--       <div class="comments">

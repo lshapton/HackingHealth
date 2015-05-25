@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal_id: 
+  weight_1: 1
+  weight_2: 1
+
+two:
+  goal_id: 
+  weight_1: 1
+  weight_2: 1

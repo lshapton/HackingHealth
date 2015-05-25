@@ -133,8 +133,8 @@ class PatientsController < ApplicationController
       # Reconnects existing user using the information above
       # access_token = @patient_fitbit.reconnect(@patient.fitbit_oauth_token, @patient.fitbit_oauth_secret)
 
-      # client.activities_on_date('2015-03-25') <- Specific Date
-      @patient_fitbit.activities_on_date('today')
+      # # client.activities_on_date('2015-03-25') <- Specific Date
+      # @patient_fitbit.activities_on_date('today')
     end
 
 end

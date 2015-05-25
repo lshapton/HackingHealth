@@ -14,6 +14,9 @@ class GoalsController < ApplicationController
   def show
     @goals = Goal.all
     @fitbit = FakeFitbit.where(goal_id: @goal.id)
+    @asthma_app = AsthmaApp.where(goal_id: @goal.id)
+    @obesity_app = ObesityApp.where(goal_id: @goal.id)
+    @diabetes_app = DiabetesApp.where(goal_id: @goal.id)
   end
 
   # GET /goals/new
