@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal_id_id: 
+  rescueInhaler_1: 1
+  rescueInhaler_2: 1
+
+two:
+  goal_id_id: 
+  rescueInhaler_1: 1
+  rescueInhaler_2: 1

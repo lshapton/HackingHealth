@@ -52,8 +52,10 @@
         </div>
       </div><br>
 
+      <!-- FITBIT STATS --> 
+
       <div class="row">
-        <% if @goal.fitbit_steps = true %> 
+        <% if @goal.fitbit_steps === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Steps (this week)</h5>
             <div class="metric">
@@ -71,7 +73,7 @@
           </div>
         <% end %> 
 
-        <% if @goal.fitbit_lightlyActiveMinutes = true %> 
+        <% if @goal.fitbit_lightlyActiveMinutes === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Light Active Minutes (this week)</h5>
             <div class="metric">
@@ -89,7 +91,7 @@
           </div>
         <% end %> 
 
-        <% if @goal.fitbit_fairlyActiveMinutes = true %> 
+        <% if @goal.fitbit_fairlyActiveMinutes === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Fairly Active Minutes (this week)</h5>
             <div class="metric">
@@ -110,9 +112,32 @@
 
       <div class="row">
 
-        <% if @goal.fitbit_veryActiveMinutes = true %> 
+        <% if @goal.fitbit_veryActiveMinutes === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Very Active Minutes (this week)</h5>
+            <div class="metric">
+              <% if @fitbit.first.veryActiveMinute_2 > @fitbit.first.veryActiveMinute_1 %> 
+                <div class="green">
+                  <%= @fitbit.first.veryActiveMinute_2 %> 
+                </div>
+              <% else %>
+                <div class="red">
+                  <%= @fitbit.first.veryActiveMinute_2 %> 
+                </div>
+              <% end %> 
+            </div>
+            <p>Last week: <%= @fitbit.first.veryActiveMinute_1 %> </p>
+          </div>
+        <% end %> 
+      </div>
+
+      <!-- ASTHMA APP STATS --> 
+
+      <div class="row">
+
+        <% if @goal.asthma_rescueInhaler === true %> 
+          <div class="col-md-3 metric-box text-center">
+            <h5># of times Rescue Inhaler was used</h5>
             <div class="metric">
               <% if @fitbit.first.veryActiveMinute_2 > @fitbit.first.veryActiveMinute_1 %> 
                 <div class="green">
