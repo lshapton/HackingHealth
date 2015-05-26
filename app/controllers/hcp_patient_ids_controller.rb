@@ -1,34 +1,25 @@
-class HealthcareProfessionalsController < ApplicationController
+class HcpPatientIdController < ApplicationController
   before_action :set_healthcare_professional, only: [:show, :edit, :update, :destroy]
 
-  # GET /healthcare_professionals
-  # GET /healthcare_professionals.json
   def index
-    @healthcare_professionals = HealthcareProfessional.all
+
   end
 
-  # GET /healthcare_professionals/1
-  # GET /healthcare_professionals/1.json
   def show
   end
 
-  # GET /healthcare_professionals/new
+
   def new
-    @healthcare_professional = HealthcareProfessional.new
   end
 
-  # GET /healthcare_professionals/1/edit
   def edit
-    @hcp_patient_id = HcpPatientId.new
   end
 
-  # POST /healthcare_professionals
-  # POST /healthcare_professionals.json
   def create
-    @healthcare_professional = HealthcareProfessional.new(healthcare_professional_params)
+    @hcp_patient_id = HcpPatientId.new(hcp_patient_id_params)
 
     respond_to do |format|
-      if @healthcare_professional.save
+      if @hcp_patient_id.save
         format.html { redirect_to @healthcare_professional, notice: 'Healthcare professional was successfully created.' }
         format.json { render :show, status: :created, location: @healthcare_professional }
       else
@@ -38,12 +29,10 @@ class HealthcareProfessionalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /healthcare_professionals/1
-  # PATCH/PUT /healthcare_professionals/1.json
+
   def update
-    @hcp_patient_id = HcpPatientId.new
     respond_to do |format|
-      if @healthcare_professional.update(healthcare_professional_params)
+      if @hcp_patient_id.update(hcp_patient_id_params)
         format.html { redirect_to @healthcare_professional, notice: 'Healthcare professional was successfully updated.' }
         format.json { render :show, status: :ok, location: @healthcare_professional }
       else
@@ -53,10 +42,8 @@ class HealthcareProfessionalsController < ApplicationController
     end
   end
 
-  # DELETE /healthcare_professionals/1
-  # DELETE /healthcare_professionals/1.json
   def destroy
-    @healthcare_professional.destroy
+    @hcp_patient_id.destroy
     respond_to do |format|
       format.html { redirect_to healthcare_professionals_url, notice: 'Healthcare professional was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,7 +57,7 @@ class HealthcareProfessionalsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def healthcare_professional_params
-      params.require(:healthcare_professional).permit(:name, :role, :hcp_patient_ids, hcp_patient_ids_attributes: [:healthcare_professional_id, :unique_id])
+    def hcp_patient_id_params
+      params.require(:hcp_patient_id).permit(:unique_id, :health_care_professional_id)
     end
 end

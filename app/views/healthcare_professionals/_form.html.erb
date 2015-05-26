@@ -19,6 +19,14 @@
     <%= f.label :role %><br>
     <%= f.text_field :role %>
   </div>
+  <p>hi</p>
+  <%= f.fields_for :hcp_patient_ids do |builder| %> 
+      <%= builder.label :unique_id %><br>
+      <%= builder.text_field :unique_id %> 
+      <%= builder.hidden_field :healthcare_professional_id, :value => @healthcare_professional.id %>     
+              
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526025016) do
+ActiveRecord::Schema.define(version: 20150526171804) do
 
   create_table "asthma_apps", force: :cascade do |t|
     t.integer  "rescueInhaler_1"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20150526025016) do
   add_index "goals", ["medical_condition_id"], name: "index_goals_on_medical_condition_id"
   add_index "goals", ["patient_id"], name: "index_goals_on_patient_id"
 
+  create_table "hcp_patient_ids", force: :cascade do |t|
+    t.string   "unique_id"
+    t.integer  "healthcare_professional_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "hcp_patient_ids", ["healthcare_professional_id"], name: "index_hcp_patient_ids_on_healthcare_professional_id"
+
   create_table "healthcare_professionals", force: :cascade do |t|
     t.string   "name"
     t.string   "role"
@@ -167,6 +176,7 @@ ActiveRecord::Schema.define(version: 20150526025016) do
     t.integer  "smoking_years"
     t.integer  "cigarettes_per_day"
     t.integer  "user_id"
+    t.string   "unique_id"
   end
 
   add_index "patients", ["user_id"], name: "index_patients_on_user_id"
