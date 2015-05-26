@@ -122,7 +122,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:given_name, :preferred_name, :surname, :dob, :health_care_number, :telephone, :email, :medical_condition_ids, :other_medical_conditions, :smoker, :cigarettes_per_day, :smoking_years, :healthy_living_area_ids)
+      params.require(:patient).permit(:given_name, :preferred_name, :surname, :address, :dob, :health_care_number, :telephone, :email, :medical_condition_ids, :other_medical_conditions, :smoker, :cigarettes_per_day, :smoking_years, :healthy_living_area_ids)
     end
 
     def get_user_activities(fitbit_data)

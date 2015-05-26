@@ -52,9 +52,10 @@
         </div>
       </div><br>
 
+      <div class="row">
+
       <!-- FITBIT STATS --> 
 
-      <div class="row">
         <% if @goal.fitbit_steps === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Steps (this week)</h5>
@@ -129,11 +130,8 @@
             <p>Last week: <%= @fitbit.first.veryActiveMinute_1 %> </p>
           </div>
         <% end %> 
-      </div>
 
       <!-- ASTHMA APP STATS --> 
-
-      <div class="row">
 
         <% if @goal.asthma_rescueInhaler === true %> 
           <div class="col-md-3 metric-box text-center">
@@ -152,11 +150,8 @@
             <p>Last week: <%= @asthma_app.first.rescueInhaler_1 %> </p>
           </div>
         <% end %> 
-      </div>
 
       <!-- OBESITY APP STATS --> 
-
-      <div class="row">
 
         <% if @goal.obesity_pounds === true %> 
           <div class="col-md-3 metric-box text-center">
@@ -175,12 +170,8 @@
             <p>Last week: <%= @obesity_app.first.weight_1 %>lbs </p>
           </div>
         <% end %> 
-      </div>
 
       <!-- DIABETES APP STATS --> 
-
-      <div class="row">
-
         <% if @goal.diabetes_glucose === true %> 
           <div class="col-md-3 metric-box text-center">
             <h5>Blood glucose levels</h5>
@@ -198,7 +189,6 @@
             <p>Last week: <%= @diabetes_app.first.glucose_1 %>mg/dl </p>
           </div>
         <% end %> 
-      </div>
 
 
 
