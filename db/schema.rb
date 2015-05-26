@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525232640) do
+ActiveRecord::Schema.define(version: 20150526025016) do
 
   create_table "asthma_apps", force: :cascade do |t|
     t.integer  "rescueInhaler_1"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20150525232640) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "goal_id"
+    t.integer  "patient_id"
   end
 
   add_index "asthma_apps", ["goal_id"], name: "index_asthma_apps_on_goal_id"
+  add_index "asthma_apps", ["patient_id"], name: "index_asthma_apps_on_patient_id"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "healthcare_professional_id"
@@ -45,9 +47,11 @@ ActiveRecord::Schema.define(version: 20150525232640) do
     t.integer  "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "patient_id"
   end
 
   add_index "diabetes_apps", ["goal_id"], name: "index_diabetes_apps_on_goal_id"
+  add_index "diabetes_apps", ["patient_id"], name: "index_diabetes_apps_on_patient_id"
 
   create_table "fake_fitbits", force: :cascade do |t|
     t.integer  "steps_1"
@@ -61,9 +65,11 @@ ActiveRecord::Schema.define(version: 20150525232640) do
     t.integer  "goal_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "patient_id"
   end
 
   add_index "fake_fitbits", ["goal_id"], name: "index_fake_fitbits_on_goal_id"
+  add_index "fake_fitbits", ["patient_id"], name: "index_fake_fitbits_on_patient_id"
 
   create_table "goals", force: :cascade do |t|
     t.text     "description"
@@ -115,9 +121,11 @@ ActiveRecord::Schema.define(version: 20150525232640) do
     t.integer  "weight_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "patient_id"
   end
 
   add_index "obesity_apps", ["goal_id"], name: "index_obesity_apps_on_goal_id"
+  add_index "obesity_apps", ["patient_id"], name: "index_obesity_apps_on_patient_id"
 
   create_table "patient_healthy_living_areas", force: :cascade do |t|
     t.integer  "healthy_living_area_id"

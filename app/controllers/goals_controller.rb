@@ -13,10 +13,10 @@ class GoalsController < ApplicationController
   # GET /goals/1.json
   def show
     @goals = Goal.all
-    @fitbit = FakeFitbit.where(goal_id: @goal.id)
-    @asthma_app = AsthmaApp.where(goal_id: @goal.id)
-    @obesity_app = ObesityApp.where(goal_id: @goal.id)
-    @diabetes_app = DiabetesApp.where(goal_id: @goal.id)
+    @fitbit = FakeFitbit.where(patient_id: @patient.id)
+    @asthma_app = AsthmaApp.where(patient_id: @patient.id)
+    @obesity_app = ObesityApp.where(patient_id: @patient.id)
+    @diabetes_app = DiabetesApp.where(patient_id: @patient.id)
   end
 
   # GET /goals/new
